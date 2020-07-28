@@ -39,7 +39,6 @@ public class ReverseList_offer24 {
         }
 
         ListNode cur = reverseList(head.next);
-
         // 翻转当前node的下一个节点的指针  head.next.next = head
         head.next.next = head;
         head.next = null;
@@ -56,15 +55,10 @@ public class ReverseList_offer24 {
      *  cur: 当前遍历
      *  tmp: 暂存cur的下一个位置
      *
-     *
-     *
-     *
-     *
      * @param head
      * @return
      */
     public ListNode reverseList1(ListNode head) {
-
         ListNode cur;
         ListNode pre;
         ListNode tmp;
@@ -72,15 +66,28 @@ public class ReverseList_offer24 {
         pre = null;
         if ( cur == null || cur.next == null )
             return cur;
-
         while ( cur != null ) {
             tmp = cur.next;
             cur.next = pre;
             pre = cur;
             cur = tmp;
         }
-
        return pre;
+    }
+
+
+    public ListNode reverseList2(ListNode head) {
+
+        ListNode cur = head, pre = null;
+        if ( head == null || head.next == null )
+            return head;
+        while ( cur != null ) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
     }
 
 

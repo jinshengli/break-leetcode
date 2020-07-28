@@ -61,7 +61,17 @@
     
     11. 92. 反转链表 II
     
-        
     
+    12. 剑指 Offer 25. 合并两个排序的链表
+       
+       https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
+    
+    13. 328. 奇偶链表
+
+    https://leetcode-cn.com/problems/odd-even-linked-list/   
+        
+    14. 142. 环形链表 II
+
+    https://leetcode-cn.com/problems/linked-list-cycle-
     
         
