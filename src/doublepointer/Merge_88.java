@@ -1,4 +1,4 @@
-package offer;
+package doublepointer;
 
 /**
  * create by ljs on 2020/7/28 16:00
