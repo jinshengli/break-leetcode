@@ -125,10 +125,46 @@ https://leetcode-cn.com/problems/house-robber-ii/description/
 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
 
 
+714. 买卖股票的最佳时机含手续费
+
+f[n][0] = max(f[n-1][0], f[n-1][1] + prices[n] - fee )
+
+
+https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+
+
 279. 完全平方数
     类似爬楼梯
 https://leetcode-cn.com/problems/perfect-squares/
 
+55. 跳跃游戏
+https://leetcode-cn.com/problems/jump-game/
+
+45. 跳跃游戏 II
+    
+    todo： 优化。
+    
+https://leetcode-cn.com/problems/jump-game-ii/
+
+
+322. 零钱兑换
+https://leetcode-cn.com/problems/coin-change/
+
+
+518. 零钱兑换 II
+https://leetcode-cn.com/problems/coin-change-2/
+
+
+64. 最小路径和
+https://leetcode-cn.com/problems/minimum-path-sum/
+
+
+523. 连续的子数组和
+https://leetcode-cn.com/problems/continuous-subarray-sum/
+
+
+72. 编辑距离
+https://leetcode-cn.com/problems/edit-distance/
 
 实战题目
 •	https://leetcode-cn.com/problems/house-robber/
