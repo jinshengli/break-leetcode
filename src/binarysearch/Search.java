@@ -6,7 +6,7 @@ package binarysearch;
  */
 public class Search {
 
-
+    // 一、寻找一个数（基本的二分搜索）
     public int search(int[] nums, int target) {
 
         int left = 0, right = nums.length-1;
@@ -71,5 +71,51 @@ public class Search {
         return -1;
     }
 
+
+    // 查找目标数 第一次出现的下标
+    int left_bound(int[] nums, int target) {
+
+        int left = 0, right = nums.length - 1;
+        while ( left <= right ) {
+            int mid = left + (right-left)/2;
+            if ( nums[mid] < target ) {
+                left = mid + 1;
+            } else if ( nums[mid] > target ) {
+                right = mid - 1;
+            } else if ( nums[mid] == target ) {
+                right = mid - 1; // 向左区间逼近
+            }
+
+        }
+
+        if ( left >= nums.length || nums[left] != target ) // 判断目标数大于所有的元素；越界；元素不存在
+            return -1;
+        return left;
+    }
+
+    // 找到目标数的； 在最右的下标
+    int right_bound(int[] nums, int target) {
+
+        if ( nums == null || nums.length == 0 )
+            return -1;
+
+        int left = 0, right = nums.length -1;
+
+        while ( left <= right ) {
+
+            int mid = left + (right-left)/2;
+            if ( nums[mid] < target ) {
+                left = mid + 1;
+            } else  if ( nums[mid] > target ) {
+                right = mid - 1;
+            } else if ( nums[mid] == target ) {
+                left = mid + 1;  // 向右区间逼近、
+            }
+        }
+
+        if ( right < 0 || nums[right] != target )
+            return -1;
+        return right;
+    }
 
 }
