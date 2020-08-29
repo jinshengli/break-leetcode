@@ -32,3 +32,30 @@ https://leetcode-cn.com/problems/deepest-leaves-sum/
 
 114. 二叉树展开为链表
 https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
+
+130. 被围绕的区域
+
+    dfs 遍历一块区域。
+    
+https://leetcode-cn.com/problems/surrounded-regions/
+
+
+200. 岛屿数量
+
+https://leetcode-cn.com/problems/number-of-islands/
+
+263. 丑数
+
+https://leetcode-cn.com/problems/ugly-number/
+
+264. 丑数 II
+https://leetcode-cn.com/problems/ugly-number-ii/
+
+
+36. 有效的数独
+
+https://leetcode-cn.com/problems/valid-sudoku/
+
+37. 解数独
+
+https://leetcode-cn.com/problems/sudoku-solver/
