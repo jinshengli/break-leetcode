@@ -1,10 +1,7 @@
 package linklist;
 
 /**
- * create by ljs on 2020/7/10 9:40
- * description:  24. 反转链表
- *
- * 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+
  *
  *
  */
@@ -90,6 +87,17 @@ public class ReverseList_offer24 {
         return pre;
     }
 
+    public ListNode reverseList3(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode tempNode = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tempNode;
+        }
+        return pre;
+    }
 
 
 

@@ -14,7 +14,7 @@ import java.util.HashSet;
 public class RemoveDuplicateNodes {
 
     /**
-     *  使用 hashMap 缓存已经存在的 val。
+     *  使用 hashSet 缓存已经存在的 val。
      * @param head
      * @return
      */
