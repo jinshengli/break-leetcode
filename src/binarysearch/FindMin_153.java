@@ -14,7 +14,7 @@ package binarysearch;
  *
  *
  */
-public class FindMin {
+public class FindMin_153 {
 
 
     public int findMin(int[] nums) {
