@@ -12,7 +12,7 @@ package dynamic_programming;
  *  卖出之后才能再次买入
  *
  *
- *  todo
+ *
  *
  */
 public class MaxProfit_123 {
@@ -20,9 +20,32 @@ public class MaxProfit_123 {
 
     public int maxProfit(int[] prices) {
 
+        // dp[i][k][0]: 代表第（i-1）天结束，经过最多交易k次，手上不持有股票的最大收益
+        // dp[i][k][1]: 代表第（i-1）天结束，经过最多交易k次，手上持有股票的最大收益
 
-        return 0;
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+
+        int len = prices.length;
+        int [][][]dp = new int[len][3][2];
+
+        dp[0][0][0] = 0;
+        dp[0][0][1] = 0;  // 没用到
+        dp[0][1][0] = 0;
+        dp[0][1][1] = -prices[0];
+        dp[0][2][0] = 0;
+        dp[0][2][1] = -prices[0];
+
+        // 买入和卖出才算一次交易。这里定义在买入的时候算一次交易。
+        for (int i = 1; i < len; ++i) {
+             dp[i][1][0] = Math.max(dp[i-1][1][0], dp[i-1][1][1] + prices[i]);
+             dp[i][1][1] = Math.max(dp[i-1][1][1], dp[i-1][0][0] - prices[i]);
+             dp[i][2][0] = Math.max(dp[i-1][2][0], dp[i-1][2][1] + prices[i]);
+             dp[i][2][1] = Math.max(dp[i-1][2][1], dp[i-1][1][0] - prices[i]);
+        }
+
+        return dp[len-1][2][0];
 
     }
-
 }
