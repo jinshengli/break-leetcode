@@ -1,4 +1,11 @@
+package sort.topic;
+
+import org.omg.CORBA.INTERNAL;
+
 import java.util.Arrays;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 /**
@@ -30,14 +37,6 @@ public class IsAngram_242 {
 
         if ( s.length() != t.length() )
             return false;
-//
-//        for ( int i = 0; i < s.length(); ++i ){
-//            hash[s.charAt(i) - 'a'] = hash[s.charAt(i) - 'a' ] + 1;
-//        }
-//
-//        for ( int i = 0; i < t.length(); ++i ){
-//            hash[t.charAt(i) - 'a'] = hash[t.charAt(i) - 'a' ] - 1;
-//        }
 
         for ( int i = 0; i < s.length(); ++i ){
             hash[s.charAt(i) - 'a']++;
