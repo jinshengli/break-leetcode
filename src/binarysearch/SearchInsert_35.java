@@ -1,4 +1,4 @@
-package array;
+package binarysearch;
 
 /**
  * create by ljs on 2020/7/19 8:26
@@ -19,7 +19,7 @@ package array;
  *  a[i] >= target
  *
  */
-public class SearchInsert {
+public class SearchInsert_35 {
 
     /**
      *  一次遍历
@@ -27,7 +27,7 @@ public class SearchInsert {
      * @param target
      * @return
      */
-    public int searchInsert(int[] nums, int target) {
+    public int searchInsert01(int[] nums, int target) {
         for ( int i = 0; i < nums.length; ++i ) {
             if ( nums[i] >= target )
                 return i;
@@ -35,6 +35,18 @@ public class SearchInsert {
         return nums.length;
     }
 
-    // TODO 二分法
+    // 二分法
+    public int searchInsert(int[] nums, int target) {
+        int left = 0, right = nums.length;
+        while (left < right) {
+            int mid = (left +right) / 2;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 
 }
