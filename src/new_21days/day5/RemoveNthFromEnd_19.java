@@ -16,23 +16,22 @@ import java.util.Stack;
  **/
 public class RemoveNthFromEnd_19 {
 
+    // 删除第 （链表长度 - n + 1）个节点。
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode pre = head, cur = head;
-        // 提前n个节点 && 做好最后一个节点准备
-        for (int i = 0; i < n && cur != null; ++i) {
-            cur = cur.next;
-        }
-        if (cur == null)
-            return head.next;
+        int len = 0;
+        ListNode cur = head;
         while (cur != null) {
+            len++;
             cur = cur.next;
-            if (cur == null) {
-                pre.next = pre.next.next;
-            } else {
-                pre = pre.next;
-            }
         }
-        return head;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        cur = dummy;
+        for (int i = 1; i < len - n + 1; ++i) {
+            cur = cur.next;
+        }
+        cur.next = cur.next.next;
+        return dummy.next;
     }
 
     // todo 2。 使用栈 + dummy 节点
@@ -71,5 +70,25 @@ public class RemoveNthFromEnd_19 {
         pre.next = pre.next.next;
         return dummy.next;
     }
+
+
+    //
+    public ListNode removeNthFromEnd03(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode cur = head;
+        ListNode slow = dummy;
+        for (int i = 0; i < n; ++i) {
+            cur = cur.next;
+        }
+        while (cur != null) {
+            cur = cur.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+        return dummy.next;
+    }
+
 
 }
