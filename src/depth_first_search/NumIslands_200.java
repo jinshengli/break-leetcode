@@ -17,8 +17,44 @@ package depth_first_search;
  */
 public class NumIslands_200 {
 
+    int[][] dir = new int[][]{{1,0}, {-1, 0}, {0,1}, {0, -1}};
 
     public int numIslands(char[][] grid) {
+        if ( grid == null || grid.length == 0 ) {
+            return 0;
+        }
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[][] vis = new boolean[m][n];
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (vis[i][j] == false && grid[i][j] == '1') {
+                    dfs(grid, vis, i, j);
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(char[][] grid, boolean[][] vis, int x, int y) {
+        vis[x][y] = true;
+        for (int k = 0; k < 4; ++k) {
+            int newX = x + dir[k][0];
+            int newY = y + dir[k][1];
+            if (inAear(grid, newX, newY) && grid[newX][newY] == '1' &&  vis[newX][newY] == false) {
+                dfs(grid, vis, newX, newY);
+            }
+        }
+    }
+
+    private boolean inAear(char[][] grid, int newX, int newY) {
+        return newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length;
+    }
+
+
+    public int numIslands01(char[][] grid) {
 
         if ( grid == null || grid.length == 0 ) {
             return 0;
@@ -27,7 +63,7 @@ public class NumIslands_200 {
         for ( int i = 0; i < grid.length; ++i ) {
             for ( int j = 0; j < grid[0].length; ++j ) {
                 if ( grid[i][j] == '1' ) {
-                    dfs(grid, i, j);
+                    dfs01(grid, i, j);
                     count++;
                 }
             }
@@ -35,17 +71,17 @@ public class NumIslands_200 {
         return count;
     }
 
-    private void dfs(char[][] grid, int i, int j) {
+    private void dfs01(char[][] grid, int i, int j) {
 
         if ( i < 0 || j < 0 || i >= grid.length ||
                 j >= grid[0].length || grid[i][j] == '0' )
             return;
 
         grid[i][j] = '0';
-        dfs(grid, i +1 ,j);
-        dfs(grid, i-1, j);
-        dfs(grid,i,j+1);
-        dfs(grid,i,j-1);
+        dfs01(grid, i +1 ,j);
+        dfs01(grid, i-1, j);
+        dfs01(grid,i,j+1);
+        dfs01(grid,i,j-1);
 
     }
 }
