@@ -1,6 +1,6 @@
-package offer;
+package offer2;
 
-public class CountBits_003 {
+public class oo3_CountBits {
 
     public int[] countBits(int n) {
         int[] ans = new int[n+1];

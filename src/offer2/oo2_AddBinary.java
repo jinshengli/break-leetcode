@@ -1,6 +1,6 @@
-package offer;
+package offer2;
 
-public class AddBinary_002 {
+public class oo2_AddBinary {
 
 
     public String addBinary(String a, String b) {

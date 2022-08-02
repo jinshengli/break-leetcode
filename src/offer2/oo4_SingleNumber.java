@@ -1,9 +1,9 @@
-package offer;
+package offer2;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SingleNumber_004 {
+public class oo4_SingleNumber {
 
     public int singleNumber(int[] nums) {
         Map<Integer, Integer> count = new HashMap<>();
